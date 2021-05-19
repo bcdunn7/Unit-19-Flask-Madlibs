@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Madlibs{% endblock %}</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    {% block form %}
+    <h1>Make a madlib!</h1>
+
+    <form action="/story">
+        {% for prompt in prompts %}
+
+            <label for="{{prompt}}">{{prompt}}:</label>
+            <input type="text" name="{{prompt}}" alt="" placeholder="{{prompt}}">
+            <br>
+
+        {% endfor %}
+
+        <button type="submit">Generate Madlib!</button>
+
+    </form>
+
+    {% endblock %}
+</body>
+</html>
